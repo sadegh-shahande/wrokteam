@@ -11,8 +11,7 @@ private:
     std::vector<int> registeredEvents;
 
 public:
-    // Standard constructor
-    Participant(std::string name, int id);
+    Participant(const std::string& name, int id);
 
     std::string getName() const;
     int getID() const;
