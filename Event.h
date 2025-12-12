@@ -13,7 +13,7 @@ private:
     std::vector<int> registeredParticipants;
 
 public:
-    Event(std::string name, int id, std::string type, int cap);
+    Event(const std::string& name, int id, const std::string& type, int cap);
 
     std::string getName() const;
     int getID() const;
