@@ -1,22 +1,21 @@
-#ifndef PARTICIPANT_H
-#define PARTICIPANT_H
+#include "Participant.h"
+#include <stdexcept> 
 
-#include <string>
-#include <vector>
+Participant::Participant(const std::string& name, int id)
+        : name(name), participantID(id) {
+    
+    if (name.empty()) {
+        throw std::invalid_argument("Error: Participant name cannot be empty!");
+    }
+}
 
-class Participant {
-private:
-    std::string name;
-    int participantID;
-    std::vector<int> registeredEvents;
+std::string Participant::getName() const { return name; }
+int Participant::getID() const { return participantID; }
 
-public:
-    Participant(const std::string& name, int id);
+void Participant::registerEvent(int eventID) {
+    registeredEvents.push_back(eventID);
+}
 
-    std::string getName() const;
-    int getID() const;
-    void registerEvent(int eventID);
-    std::vector<int> getRegisteredEvents() const;
-};
-
-#endif
+std::vector<int> Participant::getRegisteredEvents() const {
+    return registeredEvents;
+}
