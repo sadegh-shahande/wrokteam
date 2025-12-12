@@ -1,15 +1,22 @@
-#include "Participant.h"
+#ifndef PARTICIPANT_H
+#define PARTICIPANT_H
 
-Participant::Participant(std::string name, int id)
-        : name(name), participantID(id) {}
+#include <string>
+#include <vector>
 
-std::string Participant::getName() const { return name; }
-int Participant::getID() const { return participantID; }
+class Participant {
+private:
+    std::string name;
+    int participantID;
+    std::vector<int> registeredEvents;
 
-void Participant::registerEvent(int eventID) {
-    registeredEvents.push_back(eventID);
-}
+public:
+    Participant(const std::string& name, int id);
 
-std::vector<int> Participant::getRegisteredEvents() const {
-    return registeredEvents;
-}
+    std::string getName() const;
+    int getID() const;
+    void registerEvent(int eventID);
+    std::vector<int> getRegisteredEvents() const;
+};
+
+#endif
